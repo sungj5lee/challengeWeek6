@@ -24,6 +24,7 @@ class TodoList: Fragment() {
                     val data = TodoManager.getList()[position]
                     val intent = Intent(activity, ItemDetail::class.java)
                     intent.putExtra("todolist", data)
+                    intent.putExtra("mode", 0)
                     startActivity(intent)
                 }
             }
@@ -35,5 +36,11 @@ class TodoList: Fragment() {
         }
         binding.rvTodo.layoutManager= LinearLayoutManager(requireContext())
         binding.rvTodo.addItemDecoration(DividerItemDecoration(binding.rvTodo.getContext(), DividerItemDecoration.VERTICAL))
+
+        binding.fabAdd.setOnClickListener {
+            val intent = Intent(activity, ItemDetail::class.java)
+            intent.putExtra("mode", 1)
+            startActivity(intent)
+        }
     }
 }
