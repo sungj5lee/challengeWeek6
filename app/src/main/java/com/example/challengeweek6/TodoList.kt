@@ -24,6 +24,7 @@ class TodoList: Fragment() {
                     val data = TodoManager.getList()[position]
                     val intent = Intent(activity, ItemDetail::class.java)
                     intent.putExtra("todolist", data)
+                    intent.putExtra("id", position)
                     intent.putExtra("mode", 0)
                     startActivity(intent)
                 }
